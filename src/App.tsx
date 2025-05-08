@@ -1,15 +1,18 @@
-function MyButton() {
-  return (
-      <button>I'm a button</button>
-  );
-}
+const user = {
+  name: 'John Doe',
+  imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
+  imageSize: 90,
+};
 
-export default function MyApp() {
+export default function Profile() {
   return (
-    <div>
-      <h1>Welcome to my app</h1>
-      {/* Reactコンポーネント */}
-      <MyButton /> 
-    </div>
+    <>
+      <h1>{user.name}</h1>
+      <img 
+        src="{user.imageUrl}" 
+        alt={"Photo of " + user.name} 
+        style={ { width: user.imageSize, height: user.imageSize }} 
+      />
+    </>
   )
 }
