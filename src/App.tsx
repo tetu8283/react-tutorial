@@ -1,18 +1,25 @@
-const user = {
-  name: 'John Doe',
-  imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
-  imageSize: 90,
-};
+import { useState } from 'react';
 
-export default function Profile() {
+export default function MyApp() {
   return (
-    <>
-      <h1>{user.name}</h1>
-      <img 
-        src="{user.imageUrl}" 
-        alt={"Photo of " + user.name} 
-        style={ { width: user.imageSize, height: user.imageSize }} 
-      />
-    </>
-  )
+    <div>
+      <h1>Counters that update separately</h1>
+      <MyButton />
+      <MyButton />
+    </div>
+  );
+}
+
+function MyButton() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Clicked {count} times
+    </button>
+  );
 }
